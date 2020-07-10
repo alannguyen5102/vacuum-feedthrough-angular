@@ -24,4 +24,20 @@
             </select>
         </div>
     </div>
+
+    <div class="form-row">
+        <label class="control-label">
+            Leads
+        </label>
+        <div class="input-group">
+            <label class="input-group-addon" for="wire-gauge-box">
+                Wire Gauge*
+            </label>
+            <select class="form-control" formControlName="feedThroughType">
+                <option *ngFor="let gauge of wireGauges; let i = index" [value]="wireGauges[i].wireID">
+                    {{ wireGauges[i].wireName }}
+                </option>
+            </select>
+        </div>
+    </div>
 </form>
