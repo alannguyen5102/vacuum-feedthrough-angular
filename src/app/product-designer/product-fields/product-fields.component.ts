@@ -16,21 +16,27 @@ export class ProductFieldsComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+
     this.createProductForm();
-    // this.feedThroughTypes = this.getFeedThroughTypes();
+
     of(this.getFeedThroughTypes()).subscribe(feedThroughTypes => {
       this.feedThroughTypes = feedThroughTypes;
+      this.productForm.controls.feedThroughType.patchValue(this.feedThroughTypes[0].id);
     });
     of(this.getWireGauges()).subscribe(wireGauges => {
       this.wireGauges = wireGauges;
+      this.productForm.controls.wireGauge.patchValue(this.wireGauges[0].wireID);
     });
+    
+    // this.feedThroughTypes = this.getFeedThroughTypes();
+  
   }
 
   createProductForm() {
     this.productForm = this.fb.group({
       quantity: [1, [Validators.required, Validators.min(0), Validators.max(1000)]],
-      feedThroughType: [, [Validators.required]],
-      wireGauges: ['', [Validators.required]]
+      feedThroughType: ['', [Validators.required]],
+      wireGauge: ['', [Validators.required]]
     });
   }
   getFeedThroughTypes() {
