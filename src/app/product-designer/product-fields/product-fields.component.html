@@ -1,21 +1,27 @@
-<div class="form-row">
-    <div class="input-group">
-        <label class="input-group-addon" for="quantity-box">
-            Quantity*
-        </label>
-        <input class="form-control" type="number">
-    </div>
-</div>
 
-<div class="form-row">
-    <label class="control-label">
-        Feedthrough
-    </label>
-    <div class="input-group">
-        <label class="input-group-addon" for="feed-through-type-box">
-            Type*
-        </label>
-        <select class="form-control"></select>
+<form class="form-inline" [formGroup]="productForm">
+    <div class="form-row">
+        <div class="input-group">
+            <label class="input-group-addon" for="quantity-box">
+                Quantity*
+            </label>
+            <input class="form-control" type="number" formControlName="quantity">
+        </div>
     </div>
-</div>
 
+    <div class="form-row">
+        <label class="control-label">
+            Feedthrough
+        </label>
+        <div class="input-group">
+            <label class="input-group-addon" for="feed-through-type-box">
+                Type*
+            </label>
+            <select class="form-control" formControlName="feedThroughType">
+                <option *ngFor="let type of feedThroughTypes; let i = index" [value]="feedThroughTypes[i].id">
+                    {{ feedThroughTypes[i].name }}
+                </option>
+            </select>
+        </div>
+    </div>
+</form>
