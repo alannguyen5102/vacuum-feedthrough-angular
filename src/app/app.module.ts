@@ -7,6 +7,7 @@ import { ProductFieldsComponent } from './product-designer/product-fields/produc
 import { ProductPreviewComponent } from './product-designer/product-preview/product-preview.component';
 import { NavbarComponent } from './product-designer/navbar/navbar.component';
 import { FooterComponent } from './product-designer/footer/footer.component';
+import { SectionLabelComponent } from './product-designer/section-label/section-label.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FooterComponent } from './product-designer/footer/footer.component';
     ProductFieldsComponent,
     ProductPreviewComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    SectionLabelComponent
   ],
   imports: [
     BrowserModule,
