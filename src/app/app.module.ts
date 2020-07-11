@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ProductFieldsComponent } from './product-designer/product-fields/product-fields.component';
 import { ProductPreviewComponent } from './product-designer/product-preview/product-preview.component';
 import { NavbarComponent } from './product-designer/navbar/navbar.component';
+import { FooterComponent } from './product-designer/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductFieldsComponent,
     ProductPreviewComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
