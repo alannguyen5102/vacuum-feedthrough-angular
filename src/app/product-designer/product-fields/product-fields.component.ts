@@ -6,7 +6,7 @@ import { of } from 'rxjs';
 @Component({
   selector: 'app-product-fields',
   templateUrl: './product-fields.component.html',
-  styleUrls: ['./product-fields.component.css']
+  styleUrls: ['./product-fields.component.scss']
 })
 export class ProductFieldsComponent implements OnInit {
 
