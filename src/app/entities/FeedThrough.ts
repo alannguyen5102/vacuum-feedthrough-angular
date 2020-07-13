@@ -1,3 +1,4 @@
+import { FeedThrough as FeedThroughInterface } from '../interfaces/options-interface';
 /**
  * Defines a FeedThrough Class
  * FeedThroughs have:
@@ -47,21 +48,21 @@ export class FeedThrough {
      * @param {string} feedThroughSize
      * @memberof FeedThrough
      */
-    constructor(options: any, feedThroughType: string, feedThroughSize: string) {
+    constructor(options: FeedThroughInterface[], feedThroughType: string, feedThroughSize: string) {
         this._type = feedThroughType;
         this._size = feedThroughSize;
 
         //Generates the rest of the attributes
-        this._partNumber = this.getInfo(options.FeedThrough, "partNumber");
-        this._partName = this.getInfo(options.FeedThrough, "partName");
+        this._partNumber = this.getInfo(options, "partNumber");
+        this._partName = this.getInfo(options, "partName");
 
-        this._totalLength = this.getInfo(options.FeedThrough, "totalLength");
-        this._innerDiameter = this.getInfo(options.FeedThrough, "innerDiameter");
-        this._outerDiameter = this.getInfo(options.FeedThrough, "outerDiameter");
-        this._atmosphereOuterDiameter = this.getInfo(options.FeedThrough, "atmosphereOuterDiameter");
+        this._totalLength = this.getInfo(options, "totalLength");
+        this._innerDiameter = this.getInfo(options, "innerDiameter");
+        this._outerDiameter = this.getInfo(options, "outerDiameter");
+        this._atmosphereOuterDiameter = this.getInfo(options, "atmosphereOuterDiameter");
 
         this._emNumber = this.getFeedThroughNumber();
-        this._imageSizeLetter = this.getInfo(options.FeedThrough, "leadImageSize");
+        this._imageSizeLetter = this.getInfo(options, "leadImageSize");
     }
 
     /*
@@ -147,7 +148,7 @@ export class FeedThrough {
      * @returns {*}
      * @memberof FeedThrough
      */
-    getInfo(listFeedThrough: any, partData: string): any {
+    getInfo(listFeedThrough: FeedThroughInterface[], partData: string): any {
         //Search for the part number given a list of Feed Throughs and a selected type/size
 
         //Loop through the feed throughs
