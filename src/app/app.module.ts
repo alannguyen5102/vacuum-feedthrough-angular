@@ -8,6 +8,7 @@ import { ProductPreviewComponent } from './product-designer/product-preview/prod
 import { NavbarComponent } from './product-designer/navbar/navbar.component';
 import { FooterComponent } from './product-designer/footer/footer.component';
 import { SectionLabelComponent } from './product-designer/section-label/section-label.component';
+import { FeedThroughService } from './services/feedthrough.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { SectionLabelComponent } from './product-designer/section-label/section-
     BrowserModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [FeedThroughService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
