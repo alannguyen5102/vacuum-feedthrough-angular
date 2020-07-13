@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators, FormBuilder } from '@angular/forms';
 import { of } from 'rxjs';
+import { FeedThroughService } from 'src/app/services/feedthrough.service';
 
 @Component({
   selector: 'app-product-fields',
@@ -13,7 +14,7 @@ export class ProductFieldsComponent implements OnInit {
   public productForm: FormGroup;
   public feedThroughTypes = [];
   public wireGauges = [];
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private feedThroughService: FeedThroughService) { }
 
   ngOnInit(): void {
 
@@ -29,6 +30,7 @@ export class ProductFieldsComponent implements OnInit {
     });
     
     // this.feedThroughTypes = this.getFeedThroughTypes();
+    this.feedThroughService.getTest();
   
   }
 
