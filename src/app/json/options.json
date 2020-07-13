@@ -1,0 +1,277 @@
+{
+	"FeedThrough": [{
+		"typeName": "KF Flange",
+		"typeID": "kf",
+		"partList": [{
+			"partName": "KF 16",
+			"partID": "kf16",
+			"partNumber": "qf16-075-lf",
+			"totalLength": 1.58,
+			"innerDiameter": 0.63,
+			"outerDiameter": 1.18,
+			"atmosphereOuterDiameter": 0.75,
+			"leadImageSize": "A",
+			"compatibleGaugesCapacity": {
+				"26": 6,
+				"24": 6,
+				"22": 5,
+				"20": 4,
+				"18": 4,
+				"16": 4,
+				"14": 4,
+				"12": 2
+			}
+		}, {
+			"partName": "KF 25",
+			"partID": "kf25",
+			"partNumber": "qf25-100-lf",
+			"totalLength": 1.58,
+			"innerDiameter": 0.88,
+			"outerDiameter": 1.57,
+			"atmosphereOuterDiameter": 1,
+			"leadImageSize": "A",
+			"compatibleGaugesCapacity": {
+				"26": 9,
+				"24": 9,
+				"22": 9,
+				"20": 9,
+				"18": 9,
+				"16": 8,
+				"14": 7,
+				"12": 5
+			}
+		}, {
+			"partName": "KF 40",
+			"partID": "kf40",
+			"partNumber": "qf40-150-lft",
+			"totalLength": 1.58,
+			"innerDiameter": 1.38,
+			"outerDiameter": 2.16,
+			"atmosphereOuterDiameter": 1.5,
+			"leadImageSize": "B",
+			"compatibleGaugesCapacity": {
+				"26": 24,
+				"24": 24,
+				"22": 24,
+				"20": 22,
+				"18": 20,
+				"16": 19,
+				"14": 16,
+				"12": 14
+			}
+		}, {
+			"partName": "KF 50",
+			"partID": "kf50",
+			"partNumber": "qf50-200-lft",
+			"totalLength": 1.58,
+			"innerDiameter": 1.88,
+			"outerDiameter": 2.95,
+			"atmosphereOuterDiameter": 2,
+			"leadImageSize": "B",
+			"compatibleGaugesCapacity": {
+				"26": 46,
+				"24": 44,
+				"22": 42,
+				"20": 41,
+				"18": 38,
+				"16": 34,
+				"14": 31,
+				"12": 25
+			}
+		}]
+	}, {
+		"typeName": "CF Flange",
+		"typeID": "cf",
+		"partList": [{
+			"partName": "1.33 CF",
+			"partID": "cf0133",
+			"partNumber": "hn-0133",
+			"totalLength": 1.5,
+			"innerDiameter": 0.652,
+			"outerDiameter": 1.33,
+			"atmosphereOuterDiameter": 0.75,
+			"leadImageSize": "A",
+			"compatibleGaugesCapacity": {
+				"26": 6,
+				"24": 6,
+				"22": 5,
+				"20": 4,
+				"18": 4,
+				"16": 4,
+				"14": 4,
+				"12": 2
+			}
+		}, {
+			"partName": "2.12 CF",
+			"partID": "cf0212",
+			"partNumber": "hn-0212",
+			"totalLength": 2.05,
+			"innerDiameter": 0.87,
+			"outerDiameter": 2.13,
+			"atmosphereOuterDiameter": 1,
+			"leadImageSize": "A",
+			"compatibleGaugesCapacity": {
+				"26": 9,
+				"24": 9,
+				"22": 9,
+				"20": 9,
+				"18": 9,
+				"16": 8,
+				"14": 7,
+				"12": 5
+			}
+		}, {
+			"partName": "2.75 CF",
+			"partID": "cf0275",
+			"partNumber": "hn-0275",
+			"totalLength": 2.46,
+			"innerDiameter": 1.37,
+			"outerDiameter": 2.75,
+			"atmosphereOuterDiameter": 1.5,
+			"leadImageSize": "B",
+			"compatibleGaugesCapacity": {
+				"26": 24,
+				"24": 24,
+				"22": 24,
+				"20": 22,
+				"18": 20,
+				"16": 19,
+				"14": 16,
+				"12": 14
+			}
+		}, {
+			"partName": "3.38 CF",
+			"partID": "cf0337",
+			"partNumber": "hn-0337",
+			"totalLength": 3.21,
+			"innerDiameter": 1.87,
+			"outerDiameter": 3.38,
+			"atmosphereOuterDiameter": 2,
+			"leadImageSize": "B",
+			"compatibleGaugesCapacity": {
+				"26": 46,
+				"24": 44,
+				"22": 42,
+				"20": 41,
+				"18": 38,
+				"16": 34,
+				"14": 31,
+				"12": 25
+			}
+		}]
+	}, {
+		"typeName": "Hex Head Fittings",
+		"typeID": "npt",
+		"partList": [{
+			"partName": "3/4\" MNPT",
+			"partID": "3/4MNPT",
+			"partNumber": "4464K271",
+			"totalLength": 0.96,
+			"innerDiameter": 0.73,
+			"outerDiameter": 0.75,
+			"atmosphereOuterDiameter": 1.06,
+			"leadImageSize": "A",
+			"compatibleGaugesCapacity": {
+				"26": 6,
+				"24": 6,
+				"22": 5,
+				"20": 4,
+				"18": 4,
+				"16": 4,
+				"14": 4,
+				"12": 2
+			}
+		}, {
+			"partName": "1\" MNPT",
+			"partID": "1MNPT",
+			"partNumber": "4464K276",
+			"totalLength": 1.17,
+			"innerDiameter": 0.94,
+			"outerDiameter": 1.00,
+			"atmosphereOuterDiameter": 1.38,
+			"leadImageSize": "A",
+			"compatibleGaugesCapacity": {
+				"26": 9,
+				"24": 9,
+				"22": 9,
+				"20": 9,
+				"18": 9,
+				"16": 8,
+				"14": 7,
+				"12": 5
+			}
+		}, {
+			"partName": "1-1/2\" MNPT",
+			"partID": "1-1/2MNPT",
+			"partNumber": "4464K158",
+			"totalLength": 1.26,
+			"innerDiameter": 1.52,
+			"outerDiameter": 1.5,
+			"atmosphereOuterDiameter": 2.00,
+			"leadImageSize": "B",
+			"compatibleGaugesCapacity": {
+				"26": 24,
+				"24": 24,
+				"22": 24,
+				"20": 22,
+				"18": 20,
+				"16": 19,
+				"14": 16,
+				"12": 14
+			}
+		}, {
+			"partName": "2-1/2\" MNPT",
+			"partID": "2-1/2MNPT",
+			"partNumber": "4464K176",
+			"totalLength": 1.57,
+			"innerDiameter": 2.24,
+			"outerDiameter": 2.5,
+			"atmosphereOuterDiameter": 3.00,
+			"leadImageSize": "B",
+			"compatibleGaugesCapacity": {
+				"26": 46,
+				"24": 44,
+				"22": 42,
+				"20": 41,
+				"18": 38,
+				"16": 34,
+				"14": 31,
+				"12": 25
+			}
+		}]
+	}],
+
+	"WireGauge": [{
+		"wireName": "26 AWG",
+		"wireID": 26,
+		"outerDiameter": 0.039
+	}, {
+		"wireName": "24 AWG",
+		"wireID": 24,
+		"outerDiameter": 0.044
+	}, {
+		"wireName": "22 AWG",
+		"wireID": 22,
+		"outerDiameter": 0.05
+	}, {
+		"wireName": "20 AWG",
+		"wireID": 20,
+		"outerDiameter": 0.058
+	}, {
+		"wireName": "18 AWG",
+		"wireID": 18,
+		"outerDiameter": 0.068
+	}, {
+		"wireName": "16 AWG",
+		"wireID": 16,
+		"outerDiameter": 0.078
+	}, {
+		"wireName": "14 AWG",
+		"wireID": 14,
+		"outerDiameter": 0.092
+	}, {
+		"wireName": "12 AWG",
+		"wireID": 12,
+		"outerDiameter": 0.121
+	}]
+}
