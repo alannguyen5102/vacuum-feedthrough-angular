@@ -8,32 +8,33 @@
             <input class="form-control" type="number" formControlName="quantity">
         </div>
     </div>
-
-    <div class="form-row">
-        <app-section-label [sectionName]="'Feedthrough'"></app-section-label>
-        <div class="input-group">
-            <label class="input-group-addon" for="feed-through-type-box">
-                Type*
-            </label>
-            <select class="form-control" formControlName="feedThroughType">
-                <option *ngFor="let type of feedThroughTypes; let i = index" [value]="feedThroughTypes[i].id">
-                    {{ feedThroughTypes[i].name }}
-                </option>
-            </select>
+    <div formGroupName="vacuumFeedThroughForm">
+        <div class="form-row">
+            <app-section-label [sectionName]="'Feedthrough'"></app-section-label>
+            <div class="input-group">
+                <label class="input-group-addon" for="feed-through-type-box">
+                    Type*
+                </label>
+                <select class="form-control" formControlName="feedThroughType">
+                    <option *ngFor="let type of feedThroughTypes; let i = index" [value]="feedThroughTypes[i].id">
+                        {{ feedThroughTypes[i].name }}
+                    </option>
+                </select>
+            </div>
         </div>
-    </div>
 
-    <div class="form-row">
-        <app-section-label [sectionName]="'Leads'"></app-section-label>
-        <div class="input-group">
-            <label class="input-group-addon" for="wire-gauge-box">
-                Wire Gauge*
-            </label>
-            <select class="form-control" formControlName="wireGauge">
-                <option *ngFor="let gauge of wireGauges; let i = index" [value]="wireGauges[i].wireID">
-                    {{ wireGauges[i].wireName }}
-                </option>
-            </select>
+        <div class="form-row">
+            <app-section-label [sectionName]="'Leads'"></app-section-label>
+            <div class="input-group">
+                <label class="input-group-addon" for="wire-gauge-box">
+                    Wire Gauge*
+                </label>
+                <select class="form-control" formControlName="wireGauge">
+                    <option *ngFor="let gauge of wireGauges; let i = index" [value]="wireGauges[i].wireID">
+                        {{ wireGauges[i].wireName }}
+                    </option>
+                </select>
+            </div>
         </div>
     </div>
 </form>

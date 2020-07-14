@@ -12,6 +12,7 @@ import { FeedThroughService } from 'src/app/services/feedthrough.service';
 export class ProductFieldsComponent implements OnInit {
 
   public productForm: FormGroup;
+  //public vacuumFeedThroughForm: FormGroup;
   public feedThroughTypes = [];
   public wireGauges = [];
   constructor(private fb: FormBuilder, private feedThroughService: FeedThroughService) { }
@@ -22,11 +23,11 @@ export class ProductFieldsComponent implements OnInit {
 
     of(this.getFeedThroughTypes()).subscribe(feedThroughTypes => {
       this.feedThroughTypes = feedThroughTypes;
-      this.productForm.controls.feedThroughType.patchValue(this.feedThroughTypes[0].id);
+      this.productForm.patchValue({ vacuumFeedThroughForm: { feedThroughType: this.feedThroughTypes[0].id } });
     });
     of(this.getWireGauges()).subscribe(wireGauges => {
       this.wireGauges = wireGauges;
-      this.productForm.controls.wireGauge.patchValue(this.wireGauges[0].wireID.toString());
+      this.productForm.patchValue({ vacuumFeedThroughForm: { wireGauge: this.wireGauges[0].wireID.toString() } });
     });
     console.log(this.productForm.value);
     // this.feedThroughTypes = this.getFeedThroughTypes();
@@ -39,8 +40,10 @@ export class ProductFieldsComponent implements OnInit {
   createProductForm() {
     this.productForm = this.fb.group({
       quantity: [1, [Validators.required, Validators.min(0), Validators.max(1000)]],
-      feedThroughType: ['', [Validators.required]],
-      wireGauge: ['', [Validators.required]]
+      vacuumFeedThroughForm: this.fb.group({
+        feedThroughType: ['', [Validators.required]],
+        wireGauge: ['', [Validators.required]]
+      }),
     });
   }
   getFeedThroughTypes() {
