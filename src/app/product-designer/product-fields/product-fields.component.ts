@@ -26,11 +26,13 @@ export class ProductFieldsComponent implements OnInit {
     });
     of(this.getWireGauges()).subscribe(wireGauges => {
       this.wireGauges = wireGauges;
-      this.productForm.controls.wireGauge.patchValue(this.wireGauges[0].wireID);
+      this.productForm.controls.wireGauge.patchValue(this.wireGauges[0].wireID.toString());
     });
-    
+    console.log(this.productForm);
     // this.feedThroughTypes = this.getFeedThroughTypes();
     this.feedThroughService.getTest();
+    this.feedThroughService.formValues$ = this.productForm.valueChanges;
+    this.feedThroughService.subbing();
   
   }
 
