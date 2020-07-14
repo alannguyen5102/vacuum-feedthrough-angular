@@ -27,6 +27,6 @@ export class FeedThroughService {
     console.log("getTest");
   }
   subbing(): void {
-    this.formValues$.subscribe( value => console.log(value));
+    this.formValues$.subscribe( value => console.table(value));
   }
 }
