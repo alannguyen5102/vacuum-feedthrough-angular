@@ -29,10 +29,10 @@ export class ProductFieldsComponent implements OnInit {
       this.wireGauges = wireGauges;
       this.productForm.patchValue({ vacuumFeedThroughForm: { wireGauge: this.wireGauges[0].wireID.toString() } });
     });
-    console.log(this.productForm.value);
+    console.table(this.productForm.value);
     // this.feedThroughTypes = this.getFeedThroughTypes();
     this.feedThroughService.getTest();
-    this.feedThroughService.formValues$ = this.productForm.valueChanges;
+    this.feedThroughService.formValues$ = this.productForm.get('vacuumFeedThroughForm').valueChanges;
     this.feedThroughService.subbing();
   
   }
