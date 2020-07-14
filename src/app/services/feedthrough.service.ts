@@ -6,12 +6,15 @@ import { OrderDetails } from "../entities/OrderDetails";
 import { VacuumFeedThroughOrderDetails } from "../entities/VacuumFeedThroughOrderDetails";
 import { FeedThrough as FeedThroughOptions}  from "../json/options.json"
 import { FeedThrough as FeedThroughInterface } from '../interfaces/options-interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FeedThroughService {
+  formValues$: Observable<any>;
   constructor() { 
+    this.formValues$;
     let options: FeedThroughInterface[] = <FeedThroughInterface[]> FeedThroughOptions;
     //Create Wire and FeedThrough objects to send into VacuumFeedThroughOrderDetails object
     let customerWire: Wire = new Wire(26, 1, 30, 30);
@@ -27,5 +30,8 @@ export class FeedThroughService {
 
   getTest(): void {
     console.log("getTest");
+  }
+  subbing(): void {
+    this.formValues$.subscribe( value => console.log(value));
   }
 }
