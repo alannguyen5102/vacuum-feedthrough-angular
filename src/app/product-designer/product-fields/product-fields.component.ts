@@ -28,7 +28,7 @@ export class ProductFieldsComponent implements OnInit {
       this.wireGauges = wireGauges;
       this.productForm.controls.wireGauge.patchValue(this.wireGauges[0].wireID.toString());
     });
-    console.log(this.productForm);
+    console.log(this.productForm.value);
     // this.feedThroughTypes = this.getFeedThroughTypes();
     this.feedThroughService.getTest();
     this.feedThroughService.formValues$ = this.productForm.valueChanges;
