@@ -23,6 +23,17 @@
                     </option>
                 </select>
             </div>
+
+            <div class="input-group">
+                <label class="input-group-addon" for="feed-through-size-box">
+                    Size*
+                </label>
+                <select class="form-control" formControlName="feedThroughSize">
+                    <option *ngFor="let type of feedThroughSizes; let i = index" [value]="feedThroughSizes[i].partID">
+                        {{ feedThroughSizes[i].partName }}
+                    </option>
+                </select>
+            </div>
         </div>
 
         <div class="form-row">
