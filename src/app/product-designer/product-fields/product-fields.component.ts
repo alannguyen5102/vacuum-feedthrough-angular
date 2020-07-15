@@ -14,6 +14,7 @@ export class ProductFieldsComponent implements OnInit {
   public productForm: FormGroup;
   //public vacuumFeedThroughForm: FormGroup;
   public feedThroughTypes = [];
+  public feedThroughSizes = [];
   public wireGauges = [];
   constructor(private fb: FormBuilder, private feedThroughService: FeedThroughService) { }
 
@@ -29,11 +30,21 @@ export class ProductFieldsComponent implements OnInit {
       this.wireGauges = wireGauges;
       this.productForm.patchValue({ vacuumFeedThroughForm: { wireGauge: this.wireGauges[0].wireID.toString() } });
     });
+    of(this.getFeedThroughSizes("kf")).subscribe(feedThroughSizes => {
+      this.feedThroughSizes = feedThroughSizes;
+      this.productForm.patchValue({ vacuumFeedThroughForm: { feedThroughSize: this.feedThroughSizes[0].partID.toString() } });
+    });
     console.table(this.productForm.value);
     // this.feedThroughTypes = this.getFeedThroughTypes();
     this.feedThroughService.getTest();
     this.feedThroughService.formValues$ = this.productForm.get('vacuumFeedThroughForm').valueChanges;
     this.feedThroughService.subbing();
+    this.productForm.get('vacuumFeedThroughForm.feedThroughType').valueChanges.subscribe( 
+      value => (of(this.getFeedThroughSizes(value)).subscribe(feedThroughSizes => {
+        this.feedThroughSizes = feedThroughSizes;
+        this.productForm.patchValue({ vacuumFeedThroughForm: { feedThroughSize: this.feedThroughSizes[0].partID.toString() } });
+      }))
+    );
   
   }
 
@@ -42,6 +53,7 @@ export class ProductFieldsComponent implements OnInit {
       quantity: [1, [Validators.required, Validators.min(0), Validators.max(1000)]],
       vacuumFeedThroughForm: this.fb.group({
         feedThroughType: ['', [Validators.required]],
+        feedThroughSize: ['', [Validators.required]],
         wireGauge: ['', [Validators.required]]
       }),
     });
@@ -55,6 +67,7 @@ export class ProductFieldsComponent implements OnInit {
   }
 
   getFeedThroughSizes(selectedFeedThroughType) {
+    console.log("SELECTED: " + selectedFeedThroughType);
     switch (selectedFeedThroughType) {
       case 'kf':
         return [{
