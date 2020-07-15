@@ -13,25 +13,41 @@ export class FeedThroughService {
 
   //Observable from product-field component
   formValues$: Observable<any>;
+  //Cast FeedThroughOptions from JSON as a FeedThroughInterface
+  private options: FeedThroughInterface[] = <FeedThroughInterface[]> FeedThroughOptions;
+
+  //Create Wire and FeedThrough objects to send into VacuumFeedThrough object
+  private customerWire: Wire = new Wire(26, 1, 30, 30);
+  private customerFeedThrough: FeedThrough = new FeedThrough(this.options, "kf", "kf16");
+  private customerVacuumFeedThrough: VacuumFeedThrough = new VacuumFeedThrough(this.customerWire, this.customerFeedThrough);
 
   constructor() { 
 
     this.formValues$;
+    
+    
 
-    //Cast FeedThroughOptions from JSON as a FeedThroughInterface
-    let options: FeedThroughInterface[] = <FeedThroughInterface[]> FeedThroughOptions;
-
-    //Create Wire and FeedThrough objects to send into VacuumFeedThrough object
-    let customerWire: Wire = new Wire(26, 1, 30, 30);
-    let customerFeedThrough: FeedThrough = new FeedThrough(options, "kf", "kf16");
-    let customerVacuumFeedThrough: VacuumFeedThrough = new VacuumFeedThrough(customerWire, customerFeedThrough);
-
-    console.table(customerVacuumFeedThrough.wire);
-    console.table(customerVacuumFeedThrough.feedThrough);
+    console.table(this.customerVacuumFeedThrough.wire);
+    console.table(this.customerVacuumFeedThrough.feedThrough);
   }
 
   //Subscribes to formValues$
   subbing(): void {
-    this.formValues$.subscribe( value => console.log(value));
+    this.formValues$.subscribe( value => this.updateVacuumFeedThrough(value));
+  }
+
+  updateVacuumFeedThrough(value) {
+    // console.log(value);
+    console.log("%c OLD", "background: #222; color: #bada55");
+    // console.table(this.customerVacuumFeedThrough.wire);
+    console.table(this.customerVacuumFeedThrough.feedThrough);
+
+    this.customerVacuumFeedThrough.wire = value.wireGauge;
+    this.customerVacuumFeedThrough.feedThrough.type = value.feedThroughType;
+    this.customerVacuumFeedThrough.feedThrough.size = value.feedThroughSize;
+    this.customerVacuumFeedThrough.feedThrough.updateDependantAttributes();
+    console.log("%c NEW", "background: #222; color: #bada55");
+    // console.table(this.customerVacuumFeedThrough.wire);
+    console.table(this.customerVacuumFeedThrough.feedThrough);
   }
 }
