@@ -48,7 +48,7 @@ export class ProductFieldsComponent implements OnInit {
     });
 
 
-    console.table(this.productForm.value);
+    console.log(this.productForm.value);
     
     //Sends vacuumFeedThroughForm Observable to the feedThroughService
     this.feedThroughService.formValues$ = this.productForm.get('vacuumFeedThroughForm').valueChanges;
