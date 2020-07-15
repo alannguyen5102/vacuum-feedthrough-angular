@@ -27,8 +27,8 @@ export class FeedThroughService {
     
     
 
-    console.table(this.customerVacuumFeedThrough.wire);
-    console.table(this.customerVacuumFeedThrough.feedThrough);
+    //console.table(this.customerVacuumFeedThrough.wire);
+    //console.table(this.customerVacuumFeedThrough.feedThrough);
   }
 
   //Subscribes to formValues$
@@ -38,16 +38,16 @@ export class FeedThroughService {
 
   updateVacuumFeedThrough(value) {
     // console.log(value);
-    console.log("%c OLD", "background: #222; color: #bada55");
+    // console.log("%c OLD", "background: #222; color: #bada55");
     // console.table(this.customerVacuumFeedThrough.wire);
-    console.table(this.customerVacuumFeedThrough.feedThrough);
+    // console.table(this.customerVacuumFeedThrough.feedThrough);
 
     this.customerVacuumFeedThrough.wire = value.wireGauge;
     this.customerVacuumFeedThrough.feedThrough.type = value.feedThroughType;
     this.customerVacuumFeedThrough.feedThrough.size = value.feedThroughSize;
     this.customerVacuumFeedThrough.feedThrough.updateDependantAttributes();
-    console.log("%c NEW", "background: #222; color: #bada55");
+    // console.log("%c NEW", "background: #222; color: #bada55");
     // console.table(this.customerVacuumFeedThrough.wire);
-    console.table(this.customerVacuumFeedThrough.feedThrough);
+    // console.table(this.customerVacuumFeedThrough.feedThrough);
   }
 }
