@@ -10,11 +10,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FeedThroughService {
+
+  //Observable from product-field component
   formValues$: Observable<any>;
+
   constructor() { 
+
     this.formValues$;
+
+    //Cast FeedThroughOptions from JSON as a FeedThroughInterface
     let options: FeedThroughInterface[] = <FeedThroughInterface[]> FeedThroughOptions;
-    //Create Wire and FeedThrough objects to send into VacuumFeedThroughOrderDetails object
+
+    //Create Wire and FeedThrough objects to send into VacuumFeedThrough object
     let customerWire: Wire = new Wire(26, 1, 30, 30);
     let customerFeedThrough: FeedThrough = new FeedThrough(options, "kf", "kf16");
     let customerVacuumFeedThrough: VacuumFeedThrough = new VacuumFeedThrough(customerWire, customerFeedThrough);
@@ -23,10 +30,8 @@ export class FeedThroughService {
     console.table(customerVacuumFeedThrough.feedThrough);
   }
 
-  getTest(): void {
-    console.log("getTest");
-  }
+  //Subscribes to formValues$
   subbing(): void {
-    this.formValues$.subscribe( value => console.table(value));
+    this.formValues$.subscribe( value => console.log(value));
   }
 }

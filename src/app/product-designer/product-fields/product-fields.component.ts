@@ -13,32 +13,51 @@ export class ProductFieldsComponent implements OnInit {
 
   public productForm: FormGroup;
   //public vacuumFeedThroughForm: FormGroup;
+
+  //Select Options arrays
   public feedThroughTypes = [];
   public feedThroughSizes = [];
   public wireGauges = [];
+
   constructor(private fb: FormBuilder, private feedThroughService: FeedThroughService) { }
 
   ngOnInit(): void {
 
+    //Calls to create the product form
     this.createProductForm();
 
+    //FeedThrough Types Subscription
+    //Also defaults the first select option to the first value of the array
     of(this.getFeedThroughTypes()).subscribe(feedThroughTypes => {
       this.feedThroughTypes = feedThroughTypes;
       this.productForm.patchValue({ vacuumFeedThroughForm: { feedThroughType: this.feedThroughTypes[0].id } });
     });
+
+    //Wire Gauge Subscription
+    //Also defaults the first select option to the first value of the array
     of(this.getWireGauges()).subscribe(wireGauges => {
       this.wireGauges = wireGauges;
       this.productForm.patchValue({ vacuumFeedThroughForm: { wireGauge: this.wireGauges[0].wireID.toString() } });
     });
+
+    //FeedThrough Size Subscription
+    //Also defaults the first select option to the first value of the array
     of(this.getFeedThroughSizes("kf")).subscribe(feedThroughSizes => {
       this.feedThroughSizes = feedThroughSizes;
       this.productForm.patchValue({ vacuumFeedThroughForm: { feedThroughSize: this.feedThroughSizes[0].partID.toString() } });
     });
+
+
     console.table(this.productForm.value);
-    // this.feedThroughTypes = this.getFeedThroughTypes();
-    this.feedThroughService.getTest();
+    
+    //Sends vacuumFeedThroughForm Observable to the feedThroughService
     this.feedThroughService.formValues$ = this.productForm.get('vacuumFeedThroughForm').valueChanges;
     this.feedThroughService.subbing();
+
+    //FeedThrough Size Subscription
+    //Also defaults the first select option to the first value of the array
+    //Will detect changes to vacuumFeedThroughForm.feedThroughType and update 
+    //feedThroughSizes based on it
     this.productForm.get('vacuumFeedThroughForm.feedThroughType').valueChanges.subscribe( 
       value => (of(this.getFeedThroughSizes(value)).subscribe(feedThroughSizes => {
         this.feedThroughSizes = feedThroughSizes;
@@ -48,6 +67,7 @@ export class ProductFieldsComponent implements OnInit {
   
   }
 
+  //Creates the ProductForm
   createProductForm() {
     this.productForm = this.fb.group({
       quantity: [1, [Validators.required, Validators.min(0), Validators.max(1000)]],
@@ -58,6 +78,8 @@ export class ProductFieldsComponent implements OnInit {
       }),
     });
   }
+
+  //Returns the JSON of FeedThroughType select options
   getFeedThroughTypes() {
     return [
       { id: 'kf', name: 'KF Flange' },
@@ -66,8 +88,9 @@ export class ProductFieldsComponent implements OnInit {
     ];
   }
 
+  //Returns the JSON of FeedThroughSize select options
+  //Based on the passed in FeedThroughType
   getFeedThroughSizes(selectedFeedThroughType) {
-    console.log("SELECTED: " + selectedFeedThroughType);
     switch (selectedFeedThroughType) {
       case 'kf':
         return [{
@@ -119,6 +142,7 @@ export class ProductFieldsComponent implements OnInit {
     }
   }
 
+  //Returns the JSON of WireGauges select options
   getWireGauges() {
     return [{
       wireName: "26 AWG",
