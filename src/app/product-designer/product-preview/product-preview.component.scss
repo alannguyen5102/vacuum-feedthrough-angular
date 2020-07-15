@@ -1,0 +1,157 @@
+/* Extra Form Row Styling */
+.form-row {
+    margin-top: 10px; 
+    margin-bottom: 10px;
+}
+
+/* Input Group Styling */
+.input-group {
+	padding: 3px;
+}
+
+$leadRatio: 3.260;
+$leadCFRatio: 2.260;
+$feedThroughRatio: 4.460;
+$hexRatio: 3.00;
+$cfRatio: 6.0;
+
+$offsetMeasurement: 0.75;
+$linearRatio: .15;
+$turbulentRightRatio: .260;
+$turbulentTopRatio: .160;
+
+.part-preview-small {
+	width: 100%;
+	height: auto;
+	padding: 10px;
+}
+
+/*Flex Container Style*/
+.flex-container {
+	display: flex;
+	max-width: 75%;
+	align-items: center;
+}
+
+.flex-container > img {
+	width: 100%;
+	min-width: 0;
+	height: auto;
+	vertical-align: middle;
+}
+
+//Mixin function for part images
+@mixin part-basic($flex, $line-padding) {
+	flex: $flex;
+	z-index: 99;
+	border-bottom: 1px solid black;
+	padding-bottom: $line-padding + px;
+	padding-top: $line-padding + px;
+}
+
+/* Lead Classes for Part Preview */
+
+.lead-part {
+	@include part-basic($leadRatio, 10);
+}
+
+.lead-part-cf {
+	@include part-basic($leadCFRatio, 10);
+}
+
+
+/* Tube Classes for Part Preview */
+.feed-through-part {
+	@include part-basic($feedThroughRatio, 10);
+}
+
+.feed-through-part-hex {
+	@include part-basic($hexRatio, 10);
+}
+
+.feed-through-part-cf {
+	@include part-basic($cfRatio, 10);
+}
+
+//Mixin function for top/left positioning
+@mixin measurement-position($top, $left, $offset) {
+	top: $top;
+	left: $left * $offset;
+}
+
+//Basic measurement properties
+.measurement-basic {
+	position: absolute;
+	z-index: 100;
+}
+
+/*Measurement Outputs*/
+#lead-length-left-measurement {
+	@extend .measurement-basic;
+	@include measurement-position(79.5%, 16%, $offsetMeasurement);
+}
+
+#lead-length-right-measurement {
+	@extend .measurement-basic;
+	@include measurement-position(79.5%, 83%, $offsetMeasurement);
+}
+
+#feed-through-length-measurement {
+	@extend .measurement-basic;
+	@include measurement-position(96%, 47%, $offsetMeasurement);
+}
+
+#feed-through-inner-diameter-measurement {
+	@extend .measurement-basic;
+	@include measurement-position(5%, 40%, $offsetMeasurement);
+}
+//TO DO OUTER DIAMETER
+#feed-through-outer-diameter-measurement {
+	@extend .measurement-basic;
+	@include measurement-position(40%, -3%, $offsetMeasurement);
+
+	writing-mode: vertical-lr;
+	transform: rotate(180deg);
+
+	/* Legacy vendor prefixes that you probably don't need... */
+
+	/* Safari */
+	-webkit-transform: rotate(180deg);
+
+	/* Firefox */
+	-moz-transform: rotate(180deg);
+
+	/* IE */
+	-ms-transform: rotate(180deg);
+
+	/* Opera */
+	-o-transform: rotate(180deg);
+
+	/* Internet Explorer */
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=9);
+}
+
+#feed-through-atmosphere-outer-diameter-measurement {
+	@extend .measurement-basic;
+	@include measurement-position(40%, 100%, $offsetMeasurement);
+
+	writing-mode: vertical-lr;
+	// transform: rotate(180deg);
+
+	// /* Legacy vendor prefixes that you probably don't need... */
+
+	// /* Safari */
+	// -webkit-transform: rotate(180deg);
+
+	// /* Firefox */
+	// -moz-transform: rotate(180deg);
+
+	// /* IE */
+	// -ms-transform: rotate(180deg);
+
+	// /* Opera */
+	// -o-transform: rotate(180deg);
+
+	// /* Internet Explorer */
+	// filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=9);
+}
