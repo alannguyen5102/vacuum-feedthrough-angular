@@ -40,6 +40,8 @@ export class FeedThrough {
     private _emNumber: number;
     private _imageSizeLetter: string;
 
+    private _options: FeedThroughInterface[];
+
     /**
      *Creates an instance of FeedThrough.
      *Takes in a type and size to generate the rest of the attributes
@@ -51,18 +53,24 @@ export class FeedThrough {
     constructor(options: FeedThroughInterface[], feedThroughType: string, feedThroughSize: string) {
         this._type = feedThroughType;
         this._size = feedThroughSize;
+        this._options = options;
 
         //Generates the rest of the attributes
-        this._partNumber = this.getInfo(options, "partNumber");
-        this._partName = this.getInfo(options, "partName");
+        this.updateDependantAttributes();
+    }
 
-        this._totalLength = this.getInfo(options, "totalLength");
-        this._innerDiameter = this.getInfo(options, "innerDiameter");
-        this._outerDiameter = this.getInfo(options, "outerDiameter");
-        this._atmosphereOuterDiameter = this.getInfo(options, "atmosphereOuterDiameter");
+    public updateDependantAttributes(): void {
+        //Generates the rest of the attributes
+        this._partNumber = this.getInfo(this._options, "partNumber");
+        this._partName = this.getInfo(this._options, "partName");
+
+        this._totalLength = this.getInfo(this._options, "totalLength");
+        this._innerDiameter = this.getInfo(this._options, "innerDiameter");
+        this._outerDiameter = this.getInfo(this._options, "outerDiameter");
+        this._atmosphereOuterDiameter = this.getInfo(this._options, "atmosphereOuterDiameter");
 
         this._emNumber = this.getFeedThroughNumber();
-        this._imageSizeLetter = this.getInfo(options, "leadImageSize");
+        this._imageSizeLetter = this.getInfo(this._options, "leadImageSize");
     }
 
     /*
