@@ -19,7 +19,7 @@ export class FeedThroughService {
   //Create Wire and FeedThrough objects to send into VacuumFeedThrough object
   private customerWire: Wire = new Wire(26, 1, 30, 30);
   private customerFeedThrough: FeedThrough = new FeedThrough(this.options, "kf", "kf16");
-  private customerVacuumFeedThrough: VacuumFeedThrough = new VacuumFeedThrough(this.customerWire, this.customerFeedThrough);
+  public customerVacuumFeedThrough: VacuumFeedThrough = new VacuumFeedThrough(this.customerWire, this.customerFeedThrough);
 
   constructor() { 
 
