@@ -54,6 +54,58 @@ export class ProductFieldsComponent implements OnInit {
     ];
   }
 
+  getFeedThroughSizes(selectedFeedThroughType) {
+    switch (selectedFeedThroughType) {
+      case 'kf':
+        return [{
+          partName: "KF 16",
+          partID: "kf16",
+        }, {
+          partName: "KF 25",
+          partID: "kf25",
+        }, {
+          partName: "KF 40",
+          partID: "kf40",
+        }, {
+          partName: "KF 50",
+          partID: "kf50",
+        }];
+      case 'cf':
+        return [{
+          partName: "1.33 CF",
+          partID: "cf0133",
+        }, {
+          partName: "2.12 CF",
+          partID: "cf0212",
+        }, {
+          partName: "2.75 CF",
+          partID: "cf0275",
+        }, {
+          partName: "3.38 CF",
+          partID: "cf0337",
+        }];
+      case 'npt':
+        return [{
+          partName: "3/4\" MNPT",
+          partID: "3/4MNPT",
+        }, {
+          partName: "1\" MNPT",
+          partID: "1MNPT",
+        }, {
+          partName: "1-1/2\" MNPT",
+          partID: "1-1/2MNPT",
+        }, {
+          partName: "2-1/2\" MNPT",
+          partID: "2-1/2MNPT",
+        }];
+      default:
+        return [{
+          partName: "",
+          partID: "-1",
+        }];
+    }
+  }
+
   getWireGauges() {
     return [{
       wireName: "26 AWG",
