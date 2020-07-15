@@ -29,7 +29,7 @@
                     Size*
                 </label>
                 <select class="form-control" formControlName="feedThroughSize">
-                    <option *ngFor="let type of feedThroughSizes; let i = index" [value]="feedThroughSizes[i].partID">
+                    <option *ngFor="let size of feedThroughSizes; let i = index" [value]="feedThroughSizes[i].partID">
                         {{ feedThroughSizes[i].partName }}
                     </option>
                 </select>
