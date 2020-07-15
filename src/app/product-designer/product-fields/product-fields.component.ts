@@ -74,7 +74,8 @@ export class ProductFieldsComponent implements OnInit {
       vacuumFeedThroughForm: this.fb.group({
         feedThroughType: ['', [Validators.required]],
         feedThroughSize: ['', [Validators.required]],
-        wireGauge: ['', [Validators.required]]
+        wireGauge: ['', [Validators.required]],
+        leadCount: [1, [Validators.required, Validators.min(0)]],
       }),
     });
   }
