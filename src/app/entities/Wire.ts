@@ -47,7 +47,9 @@ export class Wire {
         return this._count;
     }
     public set count(value: number) {
-        this._count = value;
+        if (value !== null && value > 0){
+            this._count = value;
+        }
     }
     
     public get lengthVacuum(): number {
