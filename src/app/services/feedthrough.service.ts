@@ -36,6 +36,12 @@ export class FeedThroughService {
     this.formValues$.subscribe( value => this.updateVacuumFeedThrough(value));
   }
 
+  /**
+   * Changes the VacuumFeedThrough object's attributes based on FormGroup's values
+   *
+   * @param {*} value
+   * @memberof FeedThroughService
+   */
   updateVacuumFeedThrough(value) {
     // console.log(value);
     // console.log("%c OLD", "background: #222; color: #bada55");
