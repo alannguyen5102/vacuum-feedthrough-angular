@@ -47,8 +47,6 @@ export class ProductFieldsComponent implements OnInit {
       this.productForm.patchValue({ vacuumFeedThroughForm: { feedThroughSize: this.feedThroughSizes[0].partID.toString() } });
     });
 
-
-    console.log(this.productForm.value);
     
     //Sends vacuumFeedThroughForm Observable to the feedThroughService
     this.feedThroughService.formValues$ = this.productForm.get('vacuumFeedThroughForm').valueChanges;
