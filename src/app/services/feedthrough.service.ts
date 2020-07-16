@@ -51,12 +51,15 @@ export class FeedThroughService {
     
     this.customerVacuumFeedThrough.feedThrough.type = value.feedThroughType;
     this.customerVacuumFeedThrough.feedThrough.size = value.feedThroughSize;
+
     this.customerVacuumFeedThrough.wire.gauge = value.wireGauge;
     this.customerVacuumFeedThrough.wire.count = value.leadCount;
+    this.customerVacuumFeedThrough.wire.lengthVacuum = value.leadLengthVacuum;
+    this.customerVacuumFeedThrough.wire.lengthAtmosphere = value.leadLengthAtmosphere;
     this.customerVacuumFeedThrough.feedThrough.updateDependantAttributes();
     
-    // console.log("%c NEW", "background: #222; color: #bada55");
-    // console.table(this.customerVacuumFeedThrough.wire);
-    // console.table(this.customerVacuumFeedThrough.feedThrough);
+    console.log("%c NEW", "background: #222; color: #bada55");
+    console.table(this.customerVacuumFeedThrough.wire);
+    console.table(this.customerVacuumFeedThrough.feedThrough);
   }
 }

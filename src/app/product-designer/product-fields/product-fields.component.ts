@@ -74,6 +74,8 @@ export class ProductFieldsComponent implements OnInit {
         feedThroughSize: ['', [Validators.required]],
         wireGauge: ['', [Validators.required]],
         leadCount: [1, [Validators.required, Validators.min(0)]],
+        leadLengthVacuum: [30, [Validators.required, Validators.min(30), Validators.max(120)]],
+        leadLengthAtmosphere: [30, [Validators.required, Validators.min(30), Validators.max(120)]],
       }),
     });
   }
