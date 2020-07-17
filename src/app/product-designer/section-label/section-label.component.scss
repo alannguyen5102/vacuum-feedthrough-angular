@@ -1,4 +1,7 @@
+@import "../../../assets/shared/shared-rwd";
+
 $groupBlue: rgb(54,95,145);
+$lineGrey: #d9d9d9;
 
 /*Label for the Different Sections*/
 .control-label {
@@ -15,4 +18,66 @@ $groupBlue: rgb(54,95,145);
 	margin-left: 4px;
 	margin-right: 8px;
 	text-align: center;
+}
+
+ @mixin control-label-large {
+	width: 100px;
+	border-width: 1px;
+	text-align: center;
+	margin-top: 0px;
+	padding-top: 3px;
+	border-color: $groupBlue;
+  }
+  
+  @mixin control-label-small {
+	width: 100%;
+	border-width: 0px;
+	border-top-width: 1px;
+	text-align: left;
+	margin-top: 0px;
+	padding-top: 15px;
+	border-color: $lineGrey;
+  }
+
+
+.control-label {
+    // 300px window width and less
+    @include xxs {
+      @include control-label-small;
+    }
+
+    // 368px window width and less
+    @include xs {
+      @include control-label-small;
+    }
+
+    // 576px window width and more
+    @include sm {
+      @include control-label-small;
+    }
+
+    // 768px window width and more
+    @include md {
+      @include control-label-large;
+    }
+
+    // 992px window width and more
+    @include lg {
+      @include control-label-large;
+    }
+
+    // 1200px window width and more
+    @include xl {
+      @include control-label-large;
+    }
+
+    // 1500px window width and more
+    @include xxl {
+      @include control-label-large;
+    }
+
+    // 1800px window width and more
+    @include rwd(1800) {
+      @include control-label-large;
+    }
 }
