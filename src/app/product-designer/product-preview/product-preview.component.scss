@@ -201,3 +201,88 @@ $turbulentTopRatio: .160;
       visibility: visible;
     }
 }
+
+
+
+//Mixin function for top/left positioning
+@mixin measurement-position($top, $left, $offset) {
+	top: $top;
+	left: $left * $offset;
+}
+
+//Basic measurement properties
+.measurement-basic {
+	position: absolute;
+	z-index: 100;
+}
+
+/*Measurement Outputs*/
+#lead-length-left-measurement {
+	@extend .measurement-basic;
+	@include measurement-position(79.5%, 16%, $offsetMeasurement);
+}
+
+#lead-length-right-measurement {
+	@extend .measurement-basic;
+	@include measurement-position(79.5%, 83%, $offsetMeasurement);
+}
+
+#feed-through-length-measurement {
+	@extend .measurement-basic;
+	@include measurement-position(96%, 47%, $offsetMeasurement);
+}
+
+#feed-through-inner-diameter-measurement {
+	@extend .measurement-basic;
+	@include measurement-position(5%, 40%, $offsetMeasurement);
+}
+//TO DO OUTER DIAMETER
+#feed-through-outer-diameter-measurement {
+	@extend .measurement-basic;
+	@include measurement-position(40%, -3%, $offsetMeasurement);
+
+	writing-mode: vertical-lr;
+	transform: rotate(180deg);
+
+	/* Legacy vendor prefixes that you probably don't need... */
+
+	/* Safari */
+	-webkit-transform: rotate(180deg);
+
+	/* Firefox */
+	-moz-transform: rotate(180deg);
+
+	/* IE */
+	-ms-transform: rotate(180deg);
+
+	/* Opera */
+	-o-transform: rotate(180deg);
+
+	/* Internet Explorer */
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=9);
+}
+
+#feed-through-atmosphere-outer-diameter-measurement {
+	@extend .measurement-basic;
+	@include measurement-position(40%, 100%, $offsetMeasurement);
+
+	writing-mode: vertical-lr;
+	// transform: rotate(180deg);
+
+	// /* Legacy vendor prefixes that you probably don't need... */
+
+	// /* Safari */
+	// -webkit-transform: rotate(180deg);
+
+	// /* Firefox */
+	// -moz-transform: rotate(180deg);
+
+	// /* IE */
+	// -ms-transform: rotate(180deg);
+
+	// /* Opera */
+	// -o-transform: rotate(180deg);
+
+	// /* Internet Explorer */
+	// filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=9);
+}

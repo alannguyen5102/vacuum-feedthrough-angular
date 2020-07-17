@@ -17,6 +17,8 @@ export class ProductPreviewComponent implements OnInit {
   public imagePathFeedThrough: string = this.extraPathName + "/images/visuals/kf/qf16-075-lf.PNG";
   public imagePathWire: string = this.extraPathName + "/images/visuals/leads/A/26G-A-1.PNG";
 
+  public totalLength: number;
+
   //Observable
   public objectValues$: Observable<any>;
 
@@ -36,6 +38,10 @@ export class ProductPreviewComponent implements OnInit {
   changeImage() {
     this.imagePathFeedThrough = this.extraPathName + this.feedThroughService.customerVacuumFeedThrough.getFeedThroughImage();
     this.imagePathWire = this.extraPathName + this.feedThroughService.customerVacuumFeedThrough.getLeadImage();
+  }
+
+  updateMeasurements() {
+    this.totalLength = this.feedThroughService.customerVacuumFeedThrough.feedThrough.totalLength;
   }
 
 }
