@@ -1,3 +1,5 @@
+@import "../../../assets/shared/shared-rwd";
+
 /* Extra Form Row Styling */
 .form-row {
     margin-top: 10px; 
@@ -154,4 +156,48 @@ $turbulentTopRatio: .160;
 
 	// /* Internet Explorer */
 	// filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=9);
+}
+
+
+//Part Preview's Label that disappears when screen is small
+#part-label {
+    // 300px window width and less
+    @include xxs {
+      visibility: hidden;
+    }
+
+    // 368px window width and less
+    @include xs {
+      visibility: hidden;
+    }
+
+    // 576px window width and more
+    @include sm {
+      visibility: hidden;
+    }
+
+    // 768px window width and more
+    @include md {
+      visibility: hidden;
+    }
+
+    // 992px window width and more
+    @include lg {
+      visibility: visible;
+    }
+
+    // 1200px window width and more
+    @include xl {
+      visibility: visible;
+    }
+
+    // 1500px window width and more
+    @include xxl {
+      visibility: visible;
+    }
+
+    // 1800px window width and more
+    @include rwd(1800) {
+      visibility: visible;
+    }
 }
