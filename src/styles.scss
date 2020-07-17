@@ -1,0 +1,208 @@
+@import "./assets/shared/shared-rwd";
+/* You can add global styles to this file, and also import other style files */
+body{
+	font-family: 'Didact Gothic', sans-serif;
+}
+
+/* container style */
+.container {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+
+/* Responsive Style */
+/* for container width and font-size em */
+
+
+
+@function bodyAndContainer($screenSize) {
+
+  @return $screenSize - 30;
+}
+
+
+.container {
+    // 300px window width and less
+    @include xxs {
+      width: bodyAndContainer($screen-xxs-min) * 1px;
+    }
+
+    // 368px window width and less
+    @include xs {
+    	width: bodyAndContainer($screen-xs-min) * 1px;
+    }
+
+    // 576px window width and more
+    @include sm {
+    	width: bodyAndContainer($screen-sm-min) * 1px;
+    }
+
+    // 768px window width and more
+    @include md {
+    	width: bodyAndContainer($screen-md-min) * 1px;
+    }
+
+    // 992px window width and more
+    @include lg {
+    	width: bodyAndContainer($screen-lg-min) * 1px;
+    }
+
+    // 1200px window width and more
+    @include xl {
+    	width: bodyAndContainer($screen-xl-min) * 1px;
+    }
+    
+    // 1500px window width and more
+    @include xxl {
+    	width: bodyAndContainer($screen-xxl-min) * 1px;
+    }
+
+    // 1800px window width and more
+    @include rwd(1800) {
+    	width: bodyAndContainer(1800) * 1px;
+    }
+}
+
+.measurement {
+    // 300px window width and less
+    @include xxs {
+      font-size: 0.6em;
+    }
+
+    // 368px window width and less
+    @include xs {
+    	font-size: 0.6em;
+    }
+
+    // 576px window width and more
+    @include sm {
+    	font-size: 0.6em;
+    }
+
+    // 768px window width and more
+    @include md {
+    	font-size: 0.7em;
+    }
+
+    // 992px window width and more
+    @include lg {
+    	font-size: 0.8em;
+    }
+
+    // 1200px window width and more
+    @include xl {
+    	font-size: 0.9em;
+    }
+
+    // 1500px window width and more
+    @include xxl {
+    	font-size: 1em;
+    }
+
+    // 1800px window width and more
+    @include rwd(1800) {
+    	font-size: 1em;
+    }
+}
+
+#part-label {
+    // 300px window width and less
+    @include xxs {
+      visibility: hidden;
+    }
+
+    // 368px window width and less
+    @include xs {
+      visibility: hidden;
+    }
+
+    // 576px window width and more
+    @include sm {
+      visibility: hidden;
+    }
+
+    // 768px window width and more
+    @include md {
+      visibility: hidden;
+    }
+
+    // 992px window width and more
+    @include lg {
+      visibility: visible;
+    }
+
+    // 1200px window width and more
+    @include xl {
+      visibility: visible;
+    }
+
+    // 1500px window width and more
+    @include xxl {
+      visibility: visible;
+    }
+
+    // 1800px window width and more
+    @include rwd(1800) {
+      visibility: visible;
+    }
+}
+
+
+@mixin note-text-small {
+  min-width: 1em;
+  text-align:left;
+  font-size: 0.8em;
+  //display: inline;
+}
+@mixin note-text-large {
+  min-width: 13.625em;
+  text-align:left;
+  font-size: 1em;
+  //display: block;
+}
+
+.notes-box {
+    // 300px window width and less
+    @include xxs {
+      @include note-text-small;
+    }
+
+    // 368px window width and less
+    @include xs {
+      @include note-text-small;
+    }
+
+    // 576px window width and more
+    @include sm {
+      @include note-text-small;
+    }
+
+    // 768px window width and more
+    @include md {
+      @include note-text-large;
+    }
+
+    // 992px window width and more
+    @include lg {
+      @include note-text-large;
+    }
+
+    // 1200px window width and more
+    @include xl {
+      @include note-text-large;
+    }
+
+    // 1500px window width and more
+    @include xxl {
+      @include note-text-large;
+    }
+
+    // 1800px window width and more
+    @include rwd(1800) {
+      @include note-text-large;
+    }
+}
