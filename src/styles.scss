@@ -4,68 +4,7 @@ body{
 	font-family: 'Didact Gothic', sans-serif;
 }
 
-/* container style */
-.container {
-	border-radius: 5px;
-	background-color: #f2f2f2;
-	padding: 20px;
-	margin-top: 20px;
-	margin-bottom: 40px;
-}
 
-
-/* Responsive Style */
-/* for container width and font-size em */
-
-
-
-@function bodyAndContainer($screenSize) {
-
-  @return $screenSize - 30;
-}
-
-
-.container {
-    // 300px window width and less
-    @include xxs {
-      width: bodyAndContainer($screen-xxs-min) * 1px;
-    }
-
-    // 368px window width and less
-    @include xs {
-    	width: bodyAndContainer($screen-xs-min) * 1px;
-    }
-
-    // 576px window width and more
-    @include sm {
-    	width: bodyAndContainer($screen-sm-min) * 1px;
-    }
-
-    // 768px window width and more
-    @include md {
-    	width: bodyAndContainer($screen-md-min) * 1px;
-    }
-
-    // 992px window width and more
-    @include lg {
-    	width: bodyAndContainer($screen-lg-min) * 1px;
-    }
-
-    // 1200px window width and more
-    @include xl {
-    	width: bodyAndContainer($screen-xl-min) * 1px;
-    }
-    
-    // 1500px window width and more
-    @include xxl {
-    	width: bodyAndContainer($screen-xxl-min) * 1px;
-    }
-
-    // 1800px window width and more
-    @include rwd(1800) {
-    	width: bodyAndContainer(1800) * 1px;
-    }
-}
 
 .measurement {
     // 300px window width and less
