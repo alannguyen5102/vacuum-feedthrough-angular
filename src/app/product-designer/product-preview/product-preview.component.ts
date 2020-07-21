@@ -19,6 +19,7 @@ export class ProductPreviewComponent implements OnInit {
 
   public totalLength: number;
   public outerDiameter: number;
+  public outerDiameterOutput: string;
   public atmosphereDiameter: number;
 
   public leadLengthVacuum: number;
@@ -54,9 +55,20 @@ export class ProductPreviewComponent implements OnInit {
   updateMeasurements(): void {
     this.totalLength = this.feedThroughService.customerVacuumFeedThrough.feedThrough.totalLength;
     this.outerDiameter = this.feedThroughService.customerVacuumFeedThrough.feedThrough.outerDiameter;
+    this.outerDiameterOutput = this.getLengthVacuumString(this.feedThroughService.customerVacuumFeedThrough.feedThrough.type);
     this.atmosphereDiameter = this.feedThroughService.customerVacuumFeedThrough.feedThrough.atmosphereOuterDiameter;
+    
     this.leadLengthVacuum = this.feedThroughService.customerVacuumFeedThrough.wire.lengthVacuum;
     this.leadLengthAtmosphere = this.feedThroughService.customerVacuumFeedThrough.wire.lengthAtmosphere;
+  }
+
+  getLengthVacuumString(type: string): string {
+    if (type === "npt") {
+      return this.feedThroughService.customerVacuumFeedThrough.feedThrough.partName;
+    }
+    else {
+      return "OD: ⌀" + this.feedThroughService.customerVacuumFeedThrough.feedThrough.outerDiameter + "\"";
+    }
   }
 
 }
