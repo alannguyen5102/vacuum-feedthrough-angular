@@ -18,30 +18,45 @@ export class ProductPreviewComponent implements OnInit {
   public imagePathWire: string = this.extraPathName + "/images/visuals/leads/A/26G-A-1.PNG";
 
   public totalLength: number;
+  public outerDiameter: number;
+  public atmosphereDiameter: number;
+
+  public leadLengthVacuum: number;
+  public leadLengthAtmosphere: number;
 
   //Observable
   public objectValues$: Observable<any>;
 
   //Injecting FeedThroughService
-  constructor(private feedThroughService: FeedThroughService) { }
+  constructor(private feedThroughService: FeedThroughService) {
+    this.updatePreview();
+   }
 
   ngOnInit(): void {
 
     //Sets product-preview's Observable to FeedThroughService's Observable
     //When value changes, call changeImage()
     this.objectValues$ = this.feedThroughService.formValues$;
-    this.objectValues$.subscribe( value => this.changeImage());
+    this.objectValues$.subscribe( value => this.updatePreview());
 
+  }
+  updatePreview(): void {
+    this.changeImage();
+    this.updateMeasurements();
   }
 
   //Calls VacuumFeedThrough class to change the wire and feedthrough images
-  changeImage() {
+  changeImage(): void {
     this.imagePathFeedThrough = this.extraPathName + this.feedThroughService.customerVacuumFeedThrough.getFeedThroughImage();
     this.imagePathWire = this.extraPathName + this.feedThroughService.customerVacuumFeedThrough.getLeadImage();
   }
 
-  updateMeasurements() {
+  updateMeasurements(): void {
     this.totalLength = this.feedThroughService.customerVacuumFeedThrough.feedThrough.totalLength;
+    this.outerDiameter = this.feedThroughService.customerVacuumFeedThrough.feedThrough.outerDiameter;
+    this.atmosphereDiameter = this.feedThroughService.customerVacuumFeedThrough.feedThrough.atmosphereOuterDiameter;
+    this.leadLengthVacuum = this.feedThroughService.customerVacuumFeedThrough.wire.lengthVacuum;
+    this.leadLengthAtmosphere = this.feedThroughService.customerVacuumFeedThrough.wire.lengthAtmosphere;
   }
 
 }

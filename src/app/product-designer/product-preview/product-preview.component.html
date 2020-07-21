@@ -4,13 +4,13 @@
         <app-section-label id="part-label" [sectionName]="'Part Preview'"></app-section-label>
         <div class="part-preview-small">
             <div class="flex-container">
-                <div id="lead-length-left-measurement" class="measurement"></div>
-				<div id="lead-length-right-measurement" class="measurement"></div>
+                <div id="lead-length-left-measurement" class="measurement"> {{ leadLengthVacuum }}" </div>
+				<div id="lead-length-right-measurement" class="measurement">{{ leadLengthAtmosphere }}" </div>
                 <div id="wire-gauge-measurement" class="measurement"></div>
-                <div id="feed-through-length-measurement" class="measurement"> {{ totalLength }} </div>
+                <div id="feed-through-length-measurement" class="measurement"> {{ totalLength }}" </div>
                 <div id="feed-through-inner-diameter-measurement" class="measurement"></div>
-                <div id="feed-through-outer-diameter-measurement" class="measurement"></div>
-                <div id="feed-through-atmosphere-outer-diameter-measurement" class="measurement"></div>
+                <div id="feed-through-outer-diameter-measurement" class="measurement">{{ outerDiameter }}</div>
+                <div id="feed-through-atmosphere-outer-diameter-measurement" class="measurement">Tube OD: ⌀{{ atmosphereDiameter }}"</div>
                 <img [src]="imagePathWire" alt="Wire Left Image" class="lead-part">
                 <img [src]="imagePathFeedThrough" alt="Feed Through Image" class="feed-through-part">
                 <img [src]="imagePathWire" alt="Wire Right Image" class="lead-part">
