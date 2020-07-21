@@ -69,6 +69,7 @@ export class ProductFieldsComponent implements OnInit {
   createProductForm() {
     this.productForm = this.fb.group({
       quantity: [1, [Validators.required, Validators.min(0), Validators.max(1000)]],
+
       vacuumFeedThroughForm: this.fb.group({
         feedThroughType: ['', [Validators.required]],
         feedThroughSize: ['', [Validators.required]],
@@ -77,6 +78,17 @@ export class ProductFieldsComponent implements OnInit {
         leadLengthVacuum: [30, [Validators.required, Validators.min(30), Validators.max(120)]],
         leadLengthAtmosphere: [30, [Validators.required, Validators.min(30), Validators.max(120)]],
       }),
+      temperatureForm: this.fb.group({
+        minOperatingTemperature: ['', [Validators.required]],
+        maxOperatingTemperature: ['', [Validators.required]],
+        maxFeedThroughExposureTemperature: ['', [Validators.required]],
+        durationFeedThroughExposureTemperature: ['', [Validators.required]],
+
+      }),
+      notesForm: this.fb.group({
+        applicationNotes: [''],
+        customerNotes: ['']
+      })
     });
   }
 

@@ -74,6 +74,29 @@
         </div>
 
     </div>
+    <app-product-preview></app-product-preview>
+    <div formGroupName="notesForm">
+        <div class="form-row">
+            <div class="input-group">
+                <div class="notes-box input-group-addon">
+                    <span class="input-group-text">
+                        Application Notes
+                    </span>
+                </div>
+                <textarea type='text' formControlName="applicationNotes" cols="108" rows="3" class="form-control" placeholder='Enter any pertinent application information here'></textarea>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-group">
+                <div class="notes-box input-group-addon">
+                    <span class="input-group-text">
+                        Customer Notes
+                    </span>
+                </div>
+                <textarea type='text' formControlName="customerNotes" cols="108" rows="3" class="form-control" placeholder="If you'd like to inquire about custom orders, options not shown, or more information, please let us know."></textarea>
+            </div>
+        </div>
+    </div>
 </form>
 <div>
     {{ productForm.value | json }}
