@@ -191,4 +191,13 @@ export class ProductFieldsComponent implements OnInit {
       outerDiameter: 0.121
     }];
   }
+
+  checkPhoneOrEmail(){
+    // if ($('#email').val() === "" && $('#tel').val() === "") {
+    //   alert("Email or Phone Number required");
+    //   return false;
+    //   }
+    //   return true;
+    console.log("Submit: ", this.productForm.value);
+  }
 }

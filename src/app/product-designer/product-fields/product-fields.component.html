@@ -1,5 +1,5 @@
 
-<form class="form-inline" [formGroup]="productForm">
+<form class="form-inline" [formGroup]="productForm" (ngSubmit)="checkPhoneOrEmail()">
     
     <div class="form-row">
         <div class="input-group">
@@ -74,7 +74,46 @@
         </div>
 
     </div>
+    <div formGroupName="temperatureForm">
+        <div class="form-row">
+            <app-section-label [sectionName]="'Temperatures'"></app-section-label>
+            <div class="input-group">
+                <div class="notes-box input-group-addon">
+                    <span class="input-group-text">
+                        Operating Temperature &deg;C*
+                    </span>
+                </div>
+                <input type="text" formControlName="minOperatingTemperature" class="form-control" placeholder="Min Operating Temp °C">
+            </div>
+            &nbsp; to &nbsp;
+            <input type="text" formControlName="maxOperatingTemperature" class="form-control" placeholder="Max Operating Temp °C">
+            <br>
+            <div class="input-group">
+                <div class="notes-box input-group-addon">
+                    <span class="input-group-text">
+                        Max Feedthrough Exposure Temperature &deg;C*
+                    </span>
+                </div>
+                <input type="text" formControlName="maxFeedThroughExposureTemperature" class="form-control" placeholder="Exposure Temp °C" data-toggle='tooltip' title='Maximum temperature the feedthrough body will be exposed to'>
+            </div>
+            <div class="input-group">
+                <div class="notes-box input-group-addon">
+                    <span class="input-group-text">
+                        Exposure Duration*
+                    </span>
+                </div>
+                <input type="text" formControlName="durationFeedThroughExposureTemperature" class="form-control" placeholder="Exposure Duration" data-toggle='tooltip' title='Duration the feedthrough body will be exposed'>
+            </div>
+        </div>
+    </div>
     <app-product-preview></app-product-preview>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h6>††† Visual is intended for reference and not to scale.</h6> 
+    <h6>This application is intended to simplify the feedthrough request process for the average user.</h6> 
+    <h6>If you require something that is not currently available with the given selections, please feel free to give us the details in the application notes below so we can better assist you.</h6> 
     <div formGroupName="notesForm">
         <div class="form-row">
             <div class="input-group">
@@ -97,7 +136,11 @@
             </div>
         </div>
     </div>
+    <div class="form-row">
+        <button class="btn btn-primary" type="submit" [disabled]="productForm.invalid">Request a Quote</button>
+    </div>
 </form>
 <div>
     {{ productForm.value | json }}
+    {{ productForm.status }}
 </div>
