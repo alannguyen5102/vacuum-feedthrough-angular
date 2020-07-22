@@ -78,8 +78,8 @@ export class ProductFieldsComponent implements OnInit {
         this.productForm.patchValue({ vacuumFeedThroughForm: { feedThroughSize: this.feedThroughSizes[0].partID.toString() } });
       }))
     );
-
-    this.feedThroughService.customerVacuumFeedThrough.maxLeadChanged.subscribe(value => this.updateLeadCountMax(value));
+    this.updateLeadCountMax(6);
+    this.feedThroughService.customerVacuumFeedThrough.maxLeadChanged.subscribe((value: number) => this.updateLeadCountMax(value));
   }
 
   //Creates the ProductForm
