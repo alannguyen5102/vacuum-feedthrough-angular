@@ -138,9 +138,9 @@
 
             <div class="input-group">
                 <label class="input-group-addon" for="lead-count-box">
-                    Number of Leads* (Max $: {{ this.maxLeadOutput }})
+                    Number of Leads* (Max #: {{ this.maxLeadOutput }})
                 </label>
-                <input class="form-control" type="number" formControlName="leadCount" min="1">
+                <input class="form-control" type="number" formControlName="leadCount" min="1" [max]="this.maxLeadOutput">
             </div>
 
             <br>
