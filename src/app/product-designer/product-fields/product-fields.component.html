@@ -34,7 +34,7 @@
         Number of Leads must be at least 1
     </div>
     <div *ngIf="this.formLeadCount.errors.max">
-        Number of Leads must be at most 1000
+        Number of Leads must be at most {{ this.maxLeadOutput }}
     </div>
 </div>
 
@@ -138,7 +138,7 @@
 
             <div class="input-group">
                 <label class="input-group-addon" for="lead-count-box">
-                    Number of Leads*
+                    Number of Leads* (Max $: {{ this.maxLeadOutput }})
                 </label>
                 <input class="form-control" type="number" formControlName="leadCount" min="1">
             </div>

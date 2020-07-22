@@ -29,6 +29,8 @@ export class ProductFieldsComponent implements OnInit {
   public formMaxFeedThroughExposureTemperature: AbstractControl;
   public formDurationFeedThroughExposureTemperature: AbstractControl;
 
+  public maxLeadOutput: number;
+
   //Select Options arrays
   public feedThroughTypes = [];
   public feedThroughSizes = [];
@@ -62,7 +64,6 @@ export class ProductFieldsComponent implements OnInit {
       this.productForm.patchValue({ vacuumFeedThroughForm: { feedThroughSize: this.feedThroughSizes[0].partID.toString() } });
     });
 
-    
     //Sends vacuumFeedThroughForm Observable to the feedThroughService
     this.feedThroughService.formValues$ = this.productForm.get('vacuumFeedThroughForm').valueChanges;
     this.feedThroughService.subbing();
@@ -77,8 +78,8 @@ export class ProductFieldsComponent implements OnInit {
         this.productForm.patchValue({ vacuumFeedThroughForm: { feedThroughSize: this.feedThroughSizes[0].partID.toString() } });
       }))
     );
-    this.productForm.get('vacuumFeedThroughForm.feedThroughType').invalid
-  
+
+    this.feedThroughService.customerVacuumFeedThrough.maxLeadChanged.subscribe(value => this.updateLeadCountMax(value));
   }
 
   //Creates the ProductForm
@@ -230,4 +231,10 @@ export class ProductFieldsComponent implements OnInit {
     //   return true;
     console.log("Submit: ", this.productForm.value);
   }
+  
+  updateLeadCountMax(value: number): void {
+    this.productForm.get('vacuumFeedThroughForm.leadCount').setValidators(Validators.max(value));
+    this.maxLeadOutput = value;
+  }
+  
 }
