@@ -57,9 +57,11 @@ export class FeedThroughService {
     this.customerVacuumFeedThrough.wire.lengthVacuum = value.leadLengthVacuum;
     this.customerVacuumFeedThrough.wire.lengthAtmosphere = value.leadLengthAtmosphere;
     this.customerVacuumFeedThrough.feedThrough.updateDependantAttributes();
+    this.customerVacuumFeedThrough.maxLead = this.customerVacuumFeedThrough.gaugeSelector();
     
-    console.log("%c NEW", "background: #222; color: #bada55");
-    console.table(this.customerVacuumFeedThrough.wire);
-    console.table(this.customerVacuumFeedThrough.feedThrough);
+    // console.log("%c NEW", "background: #222; color: #bada55");
+    // console.table(this.customerVacuumFeedThrough.wire);
+    // console.table(this.customerVacuumFeedThrough.feedThrough);
+    // console.table(this.customerVacuumFeedThrough.maxLead);
   }
 }
