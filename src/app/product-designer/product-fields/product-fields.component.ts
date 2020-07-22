@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, AbstractControl } from '@angular/forms';
 import { Validators, FormBuilder } from '@angular/forms';
 import { of } from 'rxjs';
 import { FeedThroughService } from 'src/app/services/feedthrough.service';
@@ -13,6 +13,21 @@ export class ProductFieldsComponent implements OnInit {
 
   public productForm: FormGroup;
   //public vacuumFeedThroughForm: FormGroup;
+
+  //Form Accessors
+  public formQuantity: AbstractControl;
+  
+  public formFeedThroughType: AbstractControl;
+  public formFeedThroughSize: AbstractControl;
+  public formWireGauge: AbstractControl;
+  public formLeadCount: AbstractControl;
+  public formLeadLengthVacuum: AbstractControl;
+  public formLeadLengthAtmosphere: AbstractControl;
+
+  public formMinOperatingTemperature: AbstractControl;
+  public formMaxOperatingTemperature: AbstractControl;
+  public formMaxFeedThroughExposureTemperature: AbstractControl;
+  public formDurationFeedThroughExposureTemperature: AbstractControl;
 
   //Select Options arrays
   public feedThroughTypes = [];
@@ -62,19 +77,20 @@ export class ProductFieldsComponent implements OnInit {
         this.productForm.patchValue({ vacuumFeedThroughForm: { feedThroughSize: this.feedThroughSizes[0].partID.toString() } });
       }))
     );
+    this.productForm.get('vacuumFeedThroughForm.feedThroughType').invalid
   
   }
 
   //Creates the ProductForm
   createProductForm() {
     this.productForm = this.fb.group({
-      quantity: [1, [Validators.required, Validators.min(0), Validators.max(1000)]],
+      quantity: [1, [Validators.required, Validators.min(1), Validators.max(1000)]],
 
       vacuumFeedThroughForm: this.fb.group({
         feedThroughType: ['', [Validators.required]],
         feedThroughSize: ['', [Validators.required]],
         wireGauge: ['', [Validators.required]],
-        leadCount: [1, [Validators.required, Validators.min(0)]],
+        leadCount: [1, [Validators.required, Validators.min(1)]],
         leadLengthVacuum: [30, [Validators.required, Validators.min(30), Validators.max(120)]],
         leadLengthAtmosphere: [30, [Validators.required, Validators.min(30), Validators.max(120)]],
       }),
@@ -90,6 +106,20 @@ export class ProductFieldsComponent implements OnInit {
         customerNotes: ['']
       })
     });
+
+    this.formQuantity = this.productForm.get('quantity');
+
+    this.formFeedThroughType = this.productForm.get('vacuumFeedThroughForm.feedThroughType');
+    this.formFeedThroughSize = this.productForm.get('vacuumFeedThroughForm.feedThroughSize');
+    this.formWireGauge = this.productForm.get('vacuumFeedThroughForm.wireGauge');
+    this.formLeadCount = this.productForm.get('vacuumFeedThroughForm.leadCount');
+    this.formLeadLengthVacuum = this.productForm.get('vacuumFeedThroughForm.leadLengthVacuum');
+    this.formLeadLengthAtmosphere = this.productForm.get('vacuumFeedThroughForm.leadLengthAtmosphere');
+
+    this.formMinOperatingTemperature = this.productForm.get('temperatureForm.minOperatingTemperature');
+    this.formMaxOperatingTemperature = this.productForm.get('temperatureForm.maxOperatingTemperature');
+    this.formMaxFeedThroughExposureTemperature = this.productForm.get('temperatureForm.maxFeedThroughExposureTemperature');
+    this.formDurationFeedThroughExposureTemperature = this.productForm.get('temperatureForm.durationFeedThroughExposureTemperature');
   }
 
   //Returns the JSON of FeedThroughType select options

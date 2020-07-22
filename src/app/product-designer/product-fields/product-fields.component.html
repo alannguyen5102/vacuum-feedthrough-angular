@@ -1,3 +1,90 @@
+<div *ngIf="this.formQuantity.invalid && (this.formQuantity.dirty || this.formQuantity.touched)" class="alert alert-danger">
+    <div *ngIf="this.formQuantity.errors.required">
+        Quantity is required.
+    </div>
+    <div *ngIf="this.formQuantity.errors.min">
+        Quantity must be at least 1
+    </div>
+    <div *ngIf="this.formQuantity.errors.max">
+        Quantity must be at most 1000
+    </div>
+</div>
+
+<div *ngIf="this.formFeedThroughType.invalid && (this.formFeedThroughType.dirty || this.formFeedThroughType.touched)" class="alert alert-danger">
+    <div *ngIf="this.formFeedThroughType.errors.required">
+        Feedthrough Type is required.
+    </div>
+</div>
+<div *ngIf="this.formFeedThroughSize.invalid && (this.formFeedThroughSize.dirty || this.formFeedThroughSize.touched)" class="alert alert-danger">
+    <div *ngIf="this.formFeedThroughSize.errors.required">
+        Feedthrough Size is required.
+    </div>
+</div>
+<div *ngIf="this.formWireGauge.invalid && (this.formWireGauge.dirty || this.formWireGauge.touched)" class="alert alert-danger">
+    <div *ngIf="this.formWireGauge.errors.required">
+        Wire Gauge is required.
+    </div>
+</div>
+
+<div *ngIf="this.formLeadCount.invalid && (this.formLeadCount.dirty || this.formLeadCount.touched)" class="alert alert-danger">
+    <div *ngIf="this.formLeadCount.errors.required">
+        Number of Leads is required.
+    </div>
+    <div *ngIf="this.formLeadCount.errors.min">
+        Number of Leads must be at least 1
+    </div>
+    <div *ngIf="this.formLeadCount.errors.max">
+        Number of Leads must be at most 1000
+    </div>
+</div>
+
+<div *ngIf="this.formLeadLengthVacuum.invalid && (this.formLeadLengthVacuum.dirty || this.formLeadLengthVacuum.touched)" class="alert alert-danger">
+    <div *ngIf="this.formLeadLengthVacuum.errors.required">
+        Vacuum Side Lead Length is required.
+    </div>
+    <div *ngIf="this.formLeadLengthVacuum.errors.min">
+        Vacuum Side Lead Length must be at least 30 inches
+    </div>
+    <div *ngIf="this.formLeadLengthVacuum.errors.max">
+        Vacuum Side Lead Length must be at most 120 inches
+    </div>
+</div>
+
+<div *ngIf="this.formLeadLengthAtmosphere.invalid && (this.formLeadLengthAtmosphere.dirty || this.formLeadLengthAtmosphere.touched)" class="alert alert-danger">
+    <div *ngIf="this.formLeadLengthAtmosphere.errors.required">
+        Atmosphere Side Lead Length is required.
+    </div>
+    <div *ngIf="this.formLeadLengthAtmosphere.errors.min">
+        Atmosphere Side Lead Length must be at least 30 inches
+    </div>
+    <div *ngIf="this.formLeadLengthAtmosphere.errors.max">
+        Atmosphere Side Lead Length must be at most 120 inches
+    </div>
+</div>
+
+<div *ngIf="this.formMinOperatingTemperature.invalid && (this.formMinOperatingTemperature.dirty || this.formMinOperatingTemperature.touched)" class="alert alert-danger">
+    <div *ngIf="this.formMinOperatingTemperature.errors.required">
+        Min Operating Temperature is required.
+    </div>
+</div>
+
+<div *ngIf="this.formMaxOperatingTemperature.invalid && (this.formMaxOperatingTemperature.dirty || this.formMaxOperatingTemperature.touched)" class="alert alert-danger">
+    <div *ngIf="this.formMaxOperatingTemperature.errors.required">
+        Max Operating Temperature is required.
+    </div>
+</div>
+
+<div *ngIf="this.formMaxFeedThroughExposureTemperature.invalid && (this.formMaxFeedThroughExposureTemperature.dirty || this.formMaxFeedThroughExposureTemperature.touched)" class="alert alert-danger">
+    <div *ngIf="this.formMaxFeedThroughExposureTemperature.errors.required">
+        Max Feedthrough Exposure Temperature is required.
+    </div>
+</div>
+
+<div *ngIf="this.formDurationFeedThroughExposureTemperature.invalid && (this.formDurationFeedThroughExposureTemperature.dirty || this.formDurationFeedThroughExposureTemperature.touched)" class="alert alert-danger">
+    <div *ngIf="this.formDurationFeedThroughExposureTemperature.errors.required">
+        Duration Feedthrough Exposure Temperature is required.
+    </div>
+</div>
 
 <form class="form-inline" [formGroup]="productForm" (ngSubmit)="checkPhoneOrEmail()">
     
@@ -6,7 +93,7 @@
             <label class="input-group-addon" for="quantity-box">
                 Quantity*
             </label>
-            <input class="form-control" type="number" formControlName="quantity">
+                <input class="form-control" type="number" formControlName="quantity">          
         </div>
     </div>
 
