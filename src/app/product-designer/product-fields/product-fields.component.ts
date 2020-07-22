@@ -234,6 +234,7 @@ export class ProductFieldsComponent implements OnInit {
   
   updateLeadCountMax(value: number): void {
     this.productForm.get('vacuumFeedThroughForm.leadCount').setValidators(Validators.max(value));
+    this.productForm.get('vacuumFeedThroughForm.leadCount').updateValueAndValidity({onlySelf: true, emitEvent: false});
     this.maxLeadOutput = value;
   }
   
