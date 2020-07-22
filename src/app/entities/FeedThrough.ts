@@ -40,6 +40,8 @@ export class FeedThrough {
     private _emNumber: number;
     private _imageSizeLetter: string;
 
+    private _maxLeads: { [key: string]: number; };
+    
     private _options: FeedThroughInterface[];
 
     /**
@@ -71,6 +73,7 @@ export class FeedThrough {
 
         this._emNumber = this.getFeedThroughNumber();
         this._imageSizeLetter = this.getInfo(this._options, "leadImageSize");
+        this._maxLeads = this.getInfo(this._options, "compatibleGaugesCapacity");
     }
 
     /*
@@ -144,6 +147,13 @@ export class FeedThrough {
     }
     public set imageSizeLetter(value: string) {
         this._imageSizeLetter = value;
+    }
+
+    public get maxLeads(): { [key: string]: number; } {
+        return this._maxLeads;
+    }
+    public set maxLeads(value: { [key: string]: number; }) {
+        this._maxLeads = value;
     }
 
     /**
