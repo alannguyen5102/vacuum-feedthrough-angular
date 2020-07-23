@@ -28,6 +28,8 @@ export class ProductFieldsComponent implements OnInit {
   public formMaxOperatingTemperature: AbstractControl;
   public formMaxFeedThroughExposureTemperature: AbstractControl;
   public formDurationFeedThroughExposureTemperature: AbstractControl;
+  public formTelephone: AbstractControl;
+  public formEmail: AbstractControl;
 
   public maxLeadOutput: number;
 
@@ -35,6 +37,7 @@ export class ProductFieldsComponent implements OnInit {
   public feedThroughTypes = [];
   public feedThroughSizes = [];
   public wireGauges = [];
+  
 
   constructor(private fb: FormBuilder, private feedThroughService: FeedThroughService) { }
 
@@ -125,6 +128,9 @@ export class ProductFieldsComponent implements OnInit {
     this.formMaxOperatingTemperature = this.productForm.get('temperatureForm.maxOperatingTemperature');
     this.formMaxFeedThroughExposureTemperature = this.productForm.get('temperatureForm.maxFeedThroughExposureTemperature');
     this.formDurationFeedThroughExposureTemperature = this.productForm.get('temperatureForm.durationFeedThroughExposureTemperature');
+
+    this.formTelephone = this.productForm.get('contactForm.telephone');
+    this.formEmail = this.productForm.get('contactForm.email');
   }
 
   //Returns the JSON of FeedThroughType select options
@@ -228,12 +234,12 @@ export class ProductFieldsComponent implements OnInit {
   }
 
   checkPhoneOrEmail(){
-    // if ($('#email').val() === "" && $('#tel').val() === "") {
-    //   alert("Email or Phone Number required");
-    //   return false;
-    //   }
-    //   return true;
     console.log("Submit: ", this.productForm.value);
+    if (this.formEmail.value === "" && this.formTelephone.value === "") {
+      alert("Email or Phone Number required");
+      return false;
+    }
+    return true;
   }
   
   updateLeadCountMax(value: number): void {
