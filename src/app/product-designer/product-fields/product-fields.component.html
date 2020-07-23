@@ -223,6 +223,24 @@
             </div>
         </div>
     </div>
+
+    <div formGroupName="contactForm">
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-earphone"></i>
+            </span>
+            <input type="tel" class="form-control" formControlName='telephone' placeholder='Phone Number'>
+        </div>
+        <div class="input-group">
+            &nbsp;-or-&nbsp;
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-user"></i>
+            </span>
+            <input type="email" class="form-control" formControlName='email' placeholder='Email' size='30'>
+        </div>
+    </div>
     <div class="form-row">
         <button class="btn btn-primary" type="submit" [disabled]="productForm.invalid" [ngStyle]="{'cursor': (productForm.invalid? 'not-allowed':'pointer')}">Request a Quote</button>
     </div>

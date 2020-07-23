@@ -105,6 +105,10 @@ export class ProductFieldsComponent implements OnInit {
       notesForm: this.fb.group({
         applicationNotes: [''],
         customerNotes: ['']
+      }),
+      contactForm: this.fb.group({
+        telephone: [''],
+        email: ['']
       })
     });
 
