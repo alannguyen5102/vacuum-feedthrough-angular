@@ -21,15 +21,7 @@ export class FeedThroughService {
   private customerFeedThrough: FeedThrough = new FeedThrough(this.options, "kf", "kf16");
   public customerVacuumFeedThrough: VacuumFeedThrough = new VacuumFeedThrough(this.customerWire, this.customerFeedThrough);
 
-  constructor() { 
-
-    this.formValues$;
-    
-    
-
-    //console.table(this.customerVacuumFeedThrough.wire);
-    //console.table(this.customerVacuumFeedThrough.feedThrough);
-  }
+  constructor() {  }
 
   //Subscribes to formValues$
   subbing(): void {
