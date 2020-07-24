@@ -86,7 +86,7 @@
     </div>
 </div>
 
-<form class="form-inline" [formGroup]="productForm" (ngSubmit)="checkPhoneOrEmail()">
+<form class="form-inline" [formGroup]="productForm" (ngSubmit)="checkPhoneOrEmail(this.productForm.value)">
     
     <div class="form-row">
         <div class="input-group">
@@ -242,7 +242,7 @@
         </div>
     </div>
     <div class="form-row">
-        <button class="btn btn-primary" type="submit" (click)="checkPhoneOrEmail()" [disabled]="productForm.invalid" [ngStyle]="{'cursor': (productForm.invalid? 'not-allowed':'pointer')}">Request a Quote</button>
+        <button class="btn btn-primary" type="submit" [disabled]="productForm.invalid" [ngStyle]="{'cursor': (productForm.invalid? 'not-allowed':'pointer')}">Request a Quote</button>
     </div>
 </form>
 <div>

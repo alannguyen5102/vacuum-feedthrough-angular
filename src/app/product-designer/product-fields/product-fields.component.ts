@@ -4,6 +4,8 @@ import { Validators, FormBuilder } from '@angular/forms';
 import { of } from 'rxjs';
 import { FeedThroughService } from 'src/app/services/feedthrough.service';
 
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-product-fields',
   templateUrl: './product-fields.component.html',
@@ -39,7 +41,7 @@ export class ProductFieldsComponent implements OnInit {
   public wireGauges = [];
   
 
-  constructor(private fb: FormBuilder, private feedThroughService: FeedThroughService) { }
+  constructor(private fb: FormBuilder, private feedThroughService: FeedThroughService, private http: HttpClient) { }
 
   ngOnInit(): void {
 
@@ -233,13 +235,23 @@ export class ProductFieldsComponent implements OnInit {
     }];
   }
 
-  checkPhoneOrEmail(){
+  checkPhoneOrEmail(value){
     console.log("Submit: ", this.productForm.value);
     if (this.formEmail.value === "" && this.formTelephone.value === "") {
       alert("Email or Phone Number required");
       return false;
     }
-    return true;
+    return this.http.post('/submit', value).subscribe(
+      (val) => {
+          console.log("POST call successful value returned in body", 
+                      val);
+      },
+      response => {
+          console.log("POST call in error", response);
+      },
+      () => {
+          console.log("The POST observable is now completed.");
+      });
   }
   
   updateLeadCountMax(value: number): void {
